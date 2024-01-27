@@ -12,16 +12,12 @@ import java.util.List;
  * @date :2021/1/5
  * @description:
  */
-public class BootCompletedReceiver extends BroadcastReceiver {
- 
-    private static final String ACTION_BOOT_COMPLETED = "android.intent.action.BOOT_COMPLETED";
- 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(ACTION_BOOT_COMPLETED)){
-            Intent intent=new Intent(context,MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+public class BootReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        if (intent == null) return
+        if (TextUtils.equals(intent.action, "android.intent.action.BOOT_COMPLETED")) {
+            val newIntent = Intent(context, MainActivity::class.java)
+            ContextCompat.startActivity(context, newIntent, null)
         }
     }
 }

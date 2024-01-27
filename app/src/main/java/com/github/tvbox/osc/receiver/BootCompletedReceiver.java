@@ -12,7 +12,7 @@ import java.util.List;
  * @date :2021/1/5
  * @description:
  */
-public class BootReceiver : BroadcastReceiver() {
+public class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent == null) return
         if (TextUtils.equals(intent.action, "android.intent.action.BOOT_COMPLETED")) {

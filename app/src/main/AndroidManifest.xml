@@ -74,7 +74,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.BootReceiver"
+        <receiver android:name=".receiver.BootCompletedReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
